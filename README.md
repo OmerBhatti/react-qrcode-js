@@ -1,7 +1,7 @@
 ### Usage
 
 ```js
-import QRCode from "react-simple-qrcode";
+import QRCode from "react-qrcode-js";
 import logo from "./logo.png";
 
 function App() {
@@ -25,6 +25,6 @@ export default App;
 - `image`: image url to display in center of qrcode
 - `fgColor`: Foreground Color `(default: "#000000")`
 - `bgColor`: Background Color `(default: "#ffffff")`
-- `dimention`: dimention of whole QR Code `(default: 10)`
+- `dimention`: dimention of whole QR Code `(default: 10) 10x10`
 - `blockSize`: size of single block `(default: 10)`
 - `imageSize`: image dimentions `(default: 75)`

@@ -1,4 +1,4 @@
-import qr from "qr.js";
+import qrcode from "qr.js";
 import React, { useEffect, useRef, useState } from "react";
 
 export default function QRCode({
@@ -11,7 +11,7 @@ export default function QRCode({
   imageSize = 75,
 }) {
   const canvas = useRef();
-  const [cells, setCells] = useState([[]]);
+  const [, setCells] = useState([[]]);
 
   const drawImage = (ctx, img) => {
     let imgElem = new Image(imageSize, imageSize);
@@ -43,7 +43,7 @@ export default function QRCode({
   };
 
   useEffect(() => {
-    let cells = qr(content);
+    let cells = qrcode(content);
     setCells(cells);
 
     let canvas_ = canvas.current;
