@@ -7,7 +7,7 @@ import logo from "./logo.png";
 function App() {
   return (
     <div className="App">
-      <QRCode content="Omer Bhatti" image={logo} />
+      <QRCode content="Omer Bhatti" image={logo} blockSize={10} />
     </div>
   );
 }
@@ -25,6 +25,5 @@ export default App;
 - `image`: image url to display in center of qrcode
 - `fgColor`: Foreground Color `(default: "#000000")`
 - `bgColor`: Background Color `(default: "#ffffff")`
-- `dimension`: dimension of whole QR Code `(default: 10) 10x10`
 - `blockSize`: size of single block `(default: 10)`
 - `imageSize`: image dimentions `(default: 75)`

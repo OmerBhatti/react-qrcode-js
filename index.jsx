@@ -1,14 +1,16 @@
 import qrcode from "qr.js";
 import React, { useEffect, useRef, useState } from "react";
+import "./style.css";
 
 export default function QRCode({
   content,
   image,
   fgColor = "#000000",
   bgColor = "#ffffff",
-  dimension = 10,
   blockSize = 10,
   imageSize = 75,
+  copyToClipboard = true,
+  downloadable = false,
 }) {
   const canvas = useRef();
   const [, setCells] = useState([[]]);
@@ -33,10 +35,10 @@ export default function QRCode({
       for (let x = 0; x < map[y].length; x++) {
         ctx.fillStyle = map[x][y] ? fgColor : bgColor;
         ctx.fillRect(
-          x * dimension * blockSize_,
-          y * dimension * blockSize_,
-          dimension * blockSize_,
-          dimension * blockSize_
+          x * 10 * blockSize_,
+          y * 10 * blockSize_,
+          10 * blockSize_,
+          10 * blockSize_
         );
       }
     }
@@ -57,8 +59,36 @@ export default function QRCode({
   }, [content]);
 
   return (
-    <>
-      <canvas ref={canvas}></canvas>
-    </>
+    <div className="center-align">
+      <canvas
+        className={copyToClipboard ? "pointer" : ""}
+        onClick={() => {
+          if (copyToClipboard) {
+            document
+              .getElementById("qrcode-noti")
+              .removeAttribute("hidden", "");
+            navigator.clipboard.writeText(content);
+            setTimeout(() => {
+              document.getElementById("qrcode-noti").setAttribute("hidden", "");
+            }, 1000);
+          }
+        }}
+        ref={canvas}
+      ></canvas>
+      <div id="qrcode-noti" className="qrcode-noti" hidden>
+        Content Copied!!!
+      </div>
+      {downloadable && canvas.current && (
+        <div>
+          <a
+            className="downloadButton"
+            href={canvas.current.toDataURL()}
+            download="qrcode.png"
+          >
+            Download
+          </a>
+        </div>
+      )}
+    </div>
   );
 }
