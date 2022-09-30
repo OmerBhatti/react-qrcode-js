@@ -27,3 +27,5 @@ export default App;
 - `bgColor`: Background Color `(default: "#ffffff")`
 - `blockSize`: size of single block `(default: 10)`
 - `imageSize`: image dimentions `(default: 75)`
+- `copyToClipboard`: allow copy content to clipboard on click `(default: true)`
+- `downloadable`: display a button to download the QRCode as image `(default: false)`
