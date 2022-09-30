@@ -1,6 +1,6 @@
 {
   "name": "react-qrcode-js",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A Simple lightweight QRCode Generator",
   "main": "index.jsx",
   "scripts": {
@@ -18,7 +18,7 @@
     "simple-qrcode",
     "react-qrcode",
     "react-simple-qrcode",
-    "react-qrcod"
+    "react-qrcode"
   ],
   "author": "M. Omer Bhatti",
   "license": "ISC",

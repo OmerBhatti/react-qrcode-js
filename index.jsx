@@ -6,7 +6,7 @@ export default function QRCode({
   image,
   fgColor = "#000000",
   bgColor = "#ffffff",
-  dimention = 10,
+  dimension = 10,
   blockSize = 10,
   imageSize = 75,
 }) {
@@ -33,10 +33,10 @@ export default function QRCode({
       for (let x = 0; x < map[y].length; x++) {
         ctx.fillStyle = map[x][y] ? fgColor : bgColor;
         ctx.fillRect(
-          x * dimention * blockSize_,
-          y * dimention * blockSize_,
-          dimention * blockSize_,
-          dimention * blockSize_
+          x * dimension * blockSize_,
+          y * dimension * blockSize_,
+          dimension * blockSize_,
+          dimension * blockSize_
         );
       }
     }
